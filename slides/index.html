@@ -34,7 +34,35 @@ by Stephen Nancekivell
 
 ---
 
-# What is a Future
+# What are Futures
+
+---
+
+# What are Futures
+
+Data Type, container for a value, 
+
+```scala
+
+class Future[T] {
+  ...
+}
+```
+
+```scala
+val one = Future {
+  1
+}
+
+val two = Future {
+  Thread.sleep(1000)
+  2
+}
+
+```
+---
+
+# What are Futures
 
 Data Type, container for a value, 
 
@@ -46,7 +74,9 @@ class Future[T] {
 ```
 ---
 
-# What is a Future
+# What are Futures
+
+Data Type, container for a value,
 
 ```scala
 
@@ -61,14 +91,16 @@ val one = Future {
   1
 }
 
-val two = one.map { one =>
-  one + 1
+val two = one.map { oneValue =>
+  oneValue + 1
 }
+
+// Future(2)
 ```
 
 ---
 
-# What is a Future
+# What are Futures
 
 Data Type, container for a value, 
 
@@ -81,7 +113,7 @@ class Future[T] {
 ```
 ---
 
-# What is a Future
+# What are Futures
 
 ```scala
 
@@ -96,7 +128,7 @@ class Future[T] {
 val futureId: Future[Int] = ???
 def find(id: Int): Future[String] = ???
 
-val result: Future[String] = 
+val result: Future[String] =
   futureId.flatMap { id =>
     find(id)
   }
@@ -105,19 +137,41 @@ val result: Future[String] =
 
 ---
 
-# Problem
-I have lots of futures and I want to work with all of their values.
+# Tricks
 
 ---
 
-# Problem
-I am making too many futures, my database cant keep up.
+# Tricks
+I have lots of futures and I want all of their values to work with.
+
+---
+
+# live coding
+:)
+---
+
+# Tricks
+I am making too many futures at once, my database cant keep up!
+
+---
+
+# live coding
+:)
 
 ---
 
 # Monads
 Monads
 Monads
+
+---
+
+# Monads
+Monads
+Monads
+
+![Monad](./buritto.jpeg)
+
 
 ---
 
@@ -135,6 +189,12 @@ trait Monad[T] {
   def flatMap[A](fn: T => Monad[A]): Monad[A]
 }
 ```
+
+---
+
+# Thank You
+
+![Future](./delorean.jpg)
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
