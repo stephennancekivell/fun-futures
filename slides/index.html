@@ -142,7 +142,7 @@ val result: Future[String] =
 ---
 
 # Tricks
-I have lots of futures and I want all of their values to work with.
+I have lots of futures and I want all of their values to work with at once.
 
 ---
 
@@ -172,6 +172,16 @@ Monads
 
 ![Monad](./buritto.jpeg)
 
+
+---
+
+# Monads
+```scala
+class Future[T] {
+  def map[A](fn: T => A): Future[A]
+  def flatMap[A](fn: T => Future[A]): Future[A]
+}
+```
 
 ---
 
